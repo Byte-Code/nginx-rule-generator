@@ -1,0 +1,8 @@
+location ~ ^/uomo.html$ {
+
+  # /uomo.html
+  if ($query_string ~ "") {
+    rewrite ^/uomo.html?$  https://prod.pittarosso.com/it/scarpe-uomo-c? permanent;
+  }
+
+}

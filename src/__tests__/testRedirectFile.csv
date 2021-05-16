@@ -1,0 +1,5 @@
+
+URL di paretenza in produzione (www + shop),URL di destinazione in staging PROD,Redirect richiesto,URL riscontrata durante il test,Redirect OK?
+http://sftp-pittarosso.byte-code.com/uomo.html,https://prod.pittarosso.com/it/scarpe-uomo-c,301,https://prod.pittarosso.com/it/scarpe-uomo-c,TRUE
+http://sftp-pittarosso.byte-code.com/uomo.html?cat=591,https://prod.pittarosso.com/it/contenuto-non-piu-disponibile,301,https://prod.pittarosso.com/it/scarpe-uomo-c?cat=591,FALSE
+http://sftp-pittarosso.byte-code.com/uomo.html?brand=1656,https://prod.pittarosso.com/it/contenuto-non-piu-disponibile,301,https://prod.pittarosso.com/it/scarpe-uomo-c?brand=1656,FALSE

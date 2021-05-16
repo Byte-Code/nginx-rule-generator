@@ -1,0 +1,18 @@
+location ~ ^/uomo.html$ {
+
+  # /uomo.html?brand=1909
+  if ($query_string ~ "brand=1909") {
+    rewrite ^/uomo.html?$  https://prod.pittarosso.com/it/scarpe-uomo-c? permanent;
+  }
+
+  # /uomo.html?cat=527&color=379&size=279
+  if ($query_string ~ "cat=527&color=379&size=279") {
+    rewrite ^/uomo.html?$  https://prod.pittarosso.com/it/contenuto-non-piu-disponibile? permanent;
+  }
+
+  # /uomo.html
+  if ($query_string ~ "") {
+    rewrite ^/uomo.html?$  https://prod.pittarosso.com/it/scarpe-uomo-c? permanent;
+  }
+
+}
