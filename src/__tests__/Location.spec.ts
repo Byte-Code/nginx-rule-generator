@@ -80,5 +80,16 @@ describe('generateRule', () => {
         }        
       ]
     }, './scenario03_location_singlequery.rule.txt'))
+
+    test('single url with multiple queryparams that contains characters that need to be escaped', 
+    doTest({
+      baseUrl: '/uomo.html',
+      variants: [        
+        {
+          fullQueryString: 'controller=search&s=Hugo+boss&page=2',
+          destination: 'https://prod.pittarosso.com/it/scarpe-uomo-c'
+        }        
+      ]
+    }, './scenario04_location_multiquery_regexr_escape.rule.txt'))
 })
 

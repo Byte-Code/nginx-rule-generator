@@ -10,7 +10,7 @@
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
-    "test": "jest --config=jest.config.js"    
+    "test": "jest --config=jest.config.js"
   },
   "keywords": [
     "jest"
@@ -46,8 +46,8 @@
     "terser-webpack-plugin": "^2.3.1",
     "ts-jest": "^24.1.0",
     "ts-loader": "^6.2.1",
-    "ts-node": "^9.1.1",
-    "typescript": "^3.7.7",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.3",
     "uuid": "^7.0.3",
     "webpack": "^4.33.0",
     "webpack-bundle-analyzer": "^3.6.0",

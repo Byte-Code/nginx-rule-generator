@@ -2,7 +2,7 @@ module.exports = {
   runner: "groups",
   testRunner: "jest-circus/runner",
   verbose: true,
-  collectCoverage: true,
+  collectCoverage: true,  
   transform: {
     "^.+\\.tsx?$": "ts-jest",
   },

@@ -1,5 +1,4 @@
 
-
 export type LocationTarget = {
   fullQueryString: string | undefined;
   destination: string;  
@@ -13,7 +12,7 @@ export type Location = {
 export const generateSingleRuleItem = (baseUrl: string, locationTarget: LocationTarget) => {
   return `
   # ${baseUrl}${locationTarget.fullQueryString?`?${locationTarget.fullQueryString}`:''}
-  if ($query_string ~ "${locationTarget.fullQueryString ? locationTarget.fullQueryString : ''}") {
+  if ($query_string ~ "${locationTarget.fullQueryString ? escapeStringRegexp(locationTarget.fullQueryString) : ''}") {
     rewrite ^${baseUrl}?$  ${locationTarget.destination}? permanent;
   }\n`
 }
@@ -55,3 +54,15 @@ location ~ ^BASEURL$ {
 }
 
 */
+
+const escapeStringRegexp = (string: string): string => {
+	if (typeof string !== 'string') {
+		throw new TypeError('Expected a string');
+	}
+
+	// Escape characters with special meaning either inside or outside character sets.
+	// Use a simple backslash escape when it’s always valid, and a `\xnn` escape when the simpler form would be disallowed by Unicode patterns’ stricter grammar.
+	return string
+		.replace(/[|\\{}()[\]^$+*?.]/g, '\\$&')
+		.replace(/-/g, '\\x2d');
+}

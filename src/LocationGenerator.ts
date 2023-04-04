@@ -2,13 +2,7 @@ import { generateRule, Location } from "./Location";
 import { readAll } from "./RedirectFileReader"
 import * as fs from 'fs';
 import { join } from "path";
-import * as uuid from 'uuid';
-
-const guessFileName = (location: Location) => {
-  const baseUrlWithoutStartingSlash = location.baseUrl.substr(1);
-  const clearedPath = baseUrlWithoutStartingSlash.replace(/[\/,\.]/g, '_');
-  return `${!clearedPath ? 'home' : clearedPath}_${uuid.v4()}.rule`;
-}
+import { guessFileName } from "./file-name-generator";
 
 export const generateAllRules = async (sourceFile: string, targetServerName: string | undefined, outputDir: string) => {
   const locations = await readAll(sourceFile, targetServerName);
